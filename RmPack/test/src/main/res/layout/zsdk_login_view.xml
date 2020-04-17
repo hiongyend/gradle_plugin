@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@drawable/zsdk_bg_nor"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/zsdk_title"
+        layout="@layout/zsdk_include_title" />
+
+    <Button
+        android:id="@+id/zsdk_quick_register_btn"
+        style="@style/zsdk_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_height="28dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="4dp"
+        android:textSize="14sp"
+        android:background="@drawable/zsdk_shape_blue"
+        android:text="@string/zsdk_quick_register" />
+
+    <TextView
+        android:id="@+id/zsdk_notice_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@id/zsdk_quick_register_btn"
+        android:gravity="left"
+        android:maxLines="2"
+        android:layout_marginRight="10dp"
+        android:textColor="#8f8f8f"
+        android:textSize="14sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/zsdk_title"
+        android:layout_marginBottom="5dp"
+        android:layout_above="@id/zsdk_quick_register_btn"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="12dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <RelativeLayout
+                android:id="@+id/zsdk_username_et_rl"
+                android:layout_width="match_parent"
+                android:background="@drawable/zsdk_shape_gray_input"
+                android:layout_height="44dp">
+
+                <ImageView
+                    android:id="@+id/zsdk_down_iv"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/zsdk_ic_down"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/zsdk_username_et"
+                    style="@style/zsdk_edit_et"
+                    android:paddingRight="10dp"
+                    android:inputType="text"
+                    android:maxLength="16"
+                    android:imeOptions="flagNoExtractUi"
+                    android:layout_toLeftOf="@id/zsdk_down_iv"
+                    android:hint="@string/zsdk_account"
+                    android:tag="1" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/zsdk_password_et_rl"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/zsdk_shape_gray_input"
+                android:layout_marginTop="8dp"
+                android:layout_below="@id/zsdk_username_et_rl">
+
+                <TextView
+                    android:id="@+id/zsdk_forget_pwd_btn"
+                    android:layout_width="77dp"
+                    android:layout_height="23dp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/zsdk_forget_pwd"
+                    android:paddingLeft="5dp"
+                    android:textColor="#56c9ff"
+                    android:paddingRight="5dp"
+                    android:textSize="13sp"
+                    android:background="@drawable/zsdk_selector_forget_pwd"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center"
+                    />
+
+                <EditText
+                    android:id="@+id/zsdk_password_et"
+                    style="@style/zsdk_edit_et"
+                    android:maxLength="16"
+                    android:paddingLeft="10dp"
+                    android:imeOptions="flagNoExtractUi"
+                    android:layout_toLeftOf="@id/zsdk_forget_pwd_btn"
+                    android:inputType="textPassword"
+                    android:hint="@string/zsdk_pwd"
+                    android:tag="2" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/zsdk_password_et_rl"
+                android:orientation="horizontal"
+                android:layout_marginTop="13dp">
+                <Button
+                    android:id="@+id/zsdk_register_btn"
+                    style="@style/zsdk_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/zsdk_selector_btn"
+                    android:text="@string/zsdk_register2" />
+
+                <Button
+                    android:id="@+id/zsdk_login_btn"
+                    style="@style/zsdk_btn"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/zsdk_selector_btn"
+                    android:text="@string/zsdk_login2" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <!--list-->
+    <RelativeLayout
+        android:id="@+id/zsdk_list_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:paddingLeft="15dp"
+        android:visibility="gone"
+        android:paddingRight="15dp">
+
+        <ListView
+            android:id="@+id/zsdk_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="108dp"
+            android:divider="#cccccc"
+            android:dividerHeight="0.4dp"
+            android:scrollbars="vertical"
+            android:background="@drawable/zsdk_bg_gary_no_top"
+            android:visibility="visible">
+
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

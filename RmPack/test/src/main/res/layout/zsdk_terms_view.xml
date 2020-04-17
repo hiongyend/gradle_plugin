@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@drawable/zsdk_bg_nor"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/zsdk_title"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:paddingTop="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/zsdk_close_iv"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/zsdk_ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="用户协议"
+            android:layout_marginLeft="6dp"
+            android:textColor="@color/zsdk_color_blue"
+            android:textSize="17sp"
+            android:id="@+id/zsdk_dialog_tv"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/zsdk_line_blue"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

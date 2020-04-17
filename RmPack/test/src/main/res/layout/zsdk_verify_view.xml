@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_phone_root_rl"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@drawable/zsdk_bg_nor"
+    android:visibility="visible">
+
+    <include
+        android:id="@+id/zsdk_title"
+        layout="@layout/zsdk_include_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/zsdk_title"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <EditText
+                android:id="@+id/zsdk_phone_et"
+                style="@style/zsdk_edit_et"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/zsdk_shape_gray_input"
+                android:hint="@string/zsdk_phone_two2"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="phone"
+                android:tag="3" />
+            <TextView
+                android:id="@+id/zsdk_get_verify_num"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/zsdk_bg_green_border"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/zsdk_get_verify_num"
+                android:textColor="@color/zsdk_color_green"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/zsdk_verify_num_et"
+                style="@style/zsdk_edit_et"
+                android:layout_marginRight="5dp"
+                android:hint="@string/zsdk_rule_tip_two"
+                android:imeOptions="flagNoExtractUi"
+                android:background="@drawable/zsdk_shape_gray_input"
+                android:inputType="phone"
+                android:layout_marginTop="10dp"
+                android:tag="6" />
+
+            <Button
+                android:id="@+id/zsdk_commit_btn"
+                style="@style/zsdk_btn"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/zsdk_selector_btn"
+                android:text="@string/zsdk_submit" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

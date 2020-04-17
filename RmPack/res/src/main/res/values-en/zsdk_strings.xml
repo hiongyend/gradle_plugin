@@ -1,0 +1,108 @@
+<resources>
+    <string name="zsdk_forget_pwd">forgot password</string>
+    <string name="zsdk_account">account</string>
+    <string name="zsdk_pwd">password</string>
+    <string name="zsdk_login">login</string>
+    <string name="zsdk_login2">enter</string>
+    <string name="zsdk_register">register</string>
+    <string name="zsdk_register2">register</string>
+    <string name="zsdk_quick_register">quick register</string>
+    <string name="zsdk_account_two">account</string>
+    <string name="zsdk_pwd_two">password</string>
+    <string name="zsdk_account_three">account</string>
+    <string name="zsdk_verify_num">verification code</string>
+    <string name="zsdk_get_verify_num">get verification code</string>
+    <string name="zsdk_confirm_pwd">confirm password</string>
+    <string name="zsdk_read_terms">terms of service</string>
+    <string name="zsdk_bind_phone">binding mobile phone</string>
+    <string name="zsdk_phone_two">mobile phone</string>
+    <string name="zsdk_phone_two2">mobile phone</string>
+    <string name="zsdk_submit">submit</string>
+    <string name="zsdk_bind_phone_tip">Dear users, your account may be at risk, in order to ensure the security of your account, please immediately bind the phone</string>
+    <string name="zsdk_new_pwd">new password</string>
+    <string name="zsdk_confirm">confirm</string>
+    <string name="zsdk_auth">real name authentication</string>
+    <string name="zsdk_auth_tip">Respected users, as required by the state, game users need to carry out real-name authentication \n (confidentiality of information, payment limit for minors)</string>
+    <string name="zsdk_realname">name</string>
+    <string name="zsdk_realname2">name</string>
+    <string name="zsdk_idcard">id card</string>
+    <string name="zsdk_rule_tip_one">6&#8211;16 digit Numbers or letters</string>
+    <string name="zsdk_rule_tip_two">a six-digit captcha</string>
+    <string name="zsdk_rule_tip_three">an 11-digit cell phone number</string>
+    <string name="zsdk_rule_tip_four">two to fifteen Chinese characters</string>
+    <string name="zsdk_rule_tip_five">id card number</string>
+
+    <string name="zsdk_quick_register_failed">quick registration failed</string>
+    <string name="zsdk_verify_success">verify successfully</string>
+    <string name="zsdk_verify_failed">verify failed</string>
+    <string name="zsdk_cancel">cancel</string>
+    <string name="zsdk_auth_success">real-name authentication successful</string>
+    <string name="zsdk_auth_failed">authentication failed</string>
+    <string name="zsdk_account_login">account login</string>
+    <string name="zsdk_login_failed">login failed</string>
+    <string name="zsdk_login_other_account">login other</string>
+    <string name="zsdk_account_register">account register</string>
+    <string name="zsdk_register_success">registered successfully</string>
+    <string name="zsdk_register_failed">registered failed</string>
+    <string name="zsdk_change_pwd_phone_verify">change the password</string>
+    <string name="zsdk_change_pwd">change the password</string>
+    <string name="zsdk_pwd_change_success">password changed successfully</string>
+    <string name="zsdk_pwd_change_failed">password change failed</string>
+    <string name="zsdk_two_input_pwd_error">The two passwords are different, please re-enter!</string>
+    <string name="zsdk_after_get_verify_code">get code</string>
+    <string name="zsdk_bind_phone_success">successfully bind mobile phone</string>
+    <string name="zsdk_save_account_pwd">The screenshot of the account password has been saved to the album</string>
+    <string name="zsdk_pay_center">pay center</string>
+    <string name="zsdk_pay_info">purchase info</string>
+    <string name="zsdk_goodsname">product name:&#160;&#160;</string>
+    <string name="zsdk_pay_account">pay account:&#160;&#160;</string>
+    <string name="zsdk_pay_amount">pay amount:&#160;&#160;</string>
+    <string name="zsdk_pay_way">select payment method</string>
+    <string name="zsdk_sms_send">SMS sent</string>
+    <string name="zsdk_are_you_sure_exit_game">Are you sure to quit the game?</string>
+    <string name="zsdk_window_permission_tip">The current game needs to display the floating window, please go to the application permission Settings to enable the floating window function</string>
+    <string name="zsdk_net_error">network anomalies</string>
+    <string name="zsdk_delete_or_not">Are you sure you want to delete it?</string>
+
+    <string name="zsdk_idcard_error">The identity card is not in the correct form</string>
+    <string name="zsdk_name_error">Incorrect name format</string>
+    <string name="zsdk_phone_error">Incorrect cell phone format</string>
+    <string name="zsdk_pwd_error">Incorrect password format</string>
+    <string name="zsdk_account_error">Incorrect user name format</string>
+    <string name="zsdk_content_not_empty">The content cannot be empty</string>
+
+    <!--permission-->
+    <string name="zsdk_permission_name_calendar">calendar</string>
+    <string name="zsdk_permission_name_camera">camera</string>
+    <string name="zsdk_permission_name_contacts">contacts</string>
+    <string name="zsdk_permission_name_location">location</string>
+    <string name="zsdk_permission_name_microphone">microphone</string>
+    <string name="zsdk_permission_name_phone">phone</string>
+    <string name="zsdk_permission_name_sensors">sensor</string>
+    <string name="zsdk_permission_name_sms">SMS</string>
+    <string name="zsdk_permission_name_storage">storage</string>
+    <string name="zsdk_loading">loading&#8230;</string>
+
+    <!--permission-->
+    <style name="ZSDKPermission"/>
+    <style name="ZSDKPermission.Theme">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="ZSDKPermission.Theme.Activity">
+    </style>
+    <style name="ZSDKPermission.Theme.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <!--toutiao-->
+    <string name="hours_ago">%d小时前</string>
+    <string name="just_now">刚刚</string>
+    <string name="minutes_ago">%d分钟前</string>
+
+</resources>

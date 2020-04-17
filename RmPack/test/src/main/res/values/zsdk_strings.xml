@@ -1,0 +1,108 @@
+<resources>
+    <string name="zsdk_forget_pwd">忘记密码</string>
+    <string name="zsdk_account">账号</string>
+    <string name="zsdk_pwd">密码</string>
+    <string name="zsdk_login">登录</string>
+    <string name="zsdk_login2">进入游戏</string>
+    <string name="zsdk_register">注册</string>
+    <string name="zsdk_register2">注册账号</string>
+    <string name="zsdk_quick_register">一键注册</string>
+    <string name="zsdk_quick_register_failed">一键注册失败</string>
+    <string name="zsdk_account_two">账&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号</string>
+    <string name="zsdk_pwd_two">密&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;码</string>
+    <string name="zsdk_account_three">账&#160;&#160;&#160;&#160;号</string>
+    <string name="zsdk_verify_num">验证码</string>
+    <string name="zsdk_get_verify_num">获取验证码</string>
+    <string name="zsdk_verify_success">验证成功</string>
+    <string name="zsdk_verify_failed">验证失败</string>
+    <string name="zsdk_confirm_pwd">确认密码</string>
+    <string name="zsdk_read_terms">阅读服务条款</string>
+    <string name="zsdk_bind_phone">手机绑定</string>
+    <string name="zsdk_phone_two">手&#160;&#160;&#160;&#160;机</string>
+    <string name="zsdk_phone_two2">手机</string>
+    <string name="zsdk_submit">提交</string>
+    <string name="zsdk_bind_phone_tip">尊敬的用户，您的账号可能存在风险，为确保您的账号安全，请立即绑定手机</string>
+    <string name="zsdk_new_pwd">新&#160;&#160;密&#160;&#160;码</string>
+    <string name="zsdk_confirm">确认</string>
+    <string name="zsdk_cancel">取消</string>
+    <string name="zsdk_auth">实名认证</string>
+    <string name="zsdk_auth_success">实名认证成功</string>
+    <string name="zsdk_auth_failed">认证失败</string>
+    <string name="zsdk_auth_tip">尊敬的用户,应国家要求,游戏用户需进行实名认证\n（资料保密，未成年人支付限额）</string>
+    <string name="zsdk_realname">姓&#160;&#160;&#160;&#160;名</string>
+    <string name="zsdk_realname2">姓名</string>
+    <string name="zsdk_idcard">身份证</string>
+    <string name="zsdk_rule_tip_one">6&#8211;16位数字或字母</string>
+    <string name="zsdk_rule_tip_two">6位数验证码</string>
+    <string name="zsdk_rule_tip_three">11位数字手机</string>
+    <string name="zsdk_rule_tip_four">2&#8211;15位中文字符</string>
+    <string name="zsdk_rule_tip_five">18位数字身份证</string>
+
+    <string name="zsdk_account_login">账号登录</string>
+    <string name="zsdk_login_failed">登录失败</string>
+    <string name="zsdk_login_other_account">登录其他账号</string>
+    <string name="zsdk_account_register">账号注册</string>
+    <string name="zsdk_register_success">注册成功</string>
+    <string name="zsdk_register_failed">注册失败</string>
+    <string name="zsdk_change_pwd_phone_verify">修改密码手机验证</string>
+    <string name="zsdk_change_pwd">修改密码</string>
+    <string name="zsdk_pwd_change_success">密码修改成功</string>
+    <string name="zsdk_pwd_change_failed">修改密码失败</string>
+    <string name="zsdk_two_input_pwd_error">两次输入的密码不同，请重新输入！</string>
+    <string name="zsdk_after_get_verify_code">后可重新获取</string>
+    <string name="zsdk_bind_phone_success">绑定手机成功</string>
+    <string name="zsdk_save_account_pwd">账号密码已截图保存至相册</string>
+    <string name="zsdk_pay_center">支付中心</string>
+    <string name="zsdk_pay_info">购买信息</string>
+    <string name="zsdk_goodsname">商品名称:&#160;&#160;</string>
+    <string name="zsdk_pay_account">支付账号:&#160;&#160;</string>
+    <string name="zsdk_pay_amount">支付金额·:&#160;&#160;</string>
+    <string name="zsdk_pay_way">请选择支付方式:</string>
+    <string name="zsdk_sms_send">短信已发送</string>
+    <string name="zsdk_are_you_sure_exit_game">确定退出游戏?</string>
+    <string name="zsdk_window_permission_tip">当前游戏需要显示悬浮窗，请前往应用权限设置开启悬浮窗功能</string>
+    <string name="zsdk_net_error">网络异常</string>
+    <string name="zsdk_delete_or_not">确认要删除?</string>
+
+    <string name="zsdk_idcard_error">身份证号码格式不正确！</string>
+    <string name="zsdk_name_error">姓名格式不正确！</string>
+    <string name="zsdk_phone_error">手机格式不正确！</string>
+    <string name="zsdk_pwd_error">密码格式不正确！</string>
+    <string name="zsdk_account_error">用户名格式不正确！</string>
+    <string name="zsdk_content_not_empty">内容不能为空！</string>
+    <string name="zsdk_loading">加载中&#8230;</string>
+
+    <!--permission-->
+    <string name="zsdk_permission_name_calendar">日历</string>
+    <string name="zsdk_permission_name_camera">相机</string>
+    <string name="zsdk_permission_name_contacts">通讯录</string>
+    <string name="zsdk_permission_name_location">位置信息</string>
+    <string name="zsdk_permission_name_microphone">麦克风</string>
+    <string name="zsdk_permission_name_phone">电话</string>
+    <string name="zsdk_permission_name_sensors">身体传感器</string>
+    <string name="zsdk_permission_name_sms">短信</string>
+    <string name="zsdk_permission_name_storage">存储空间</string>
+
+    <!--permission-->
+    <style name="ZSDKPermission"/>
+    <style name="ZSDKPermission.Theme">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="ZSDKPermission.Theme.Activity">
+    </style>
+    <style name="ZSDKPermission.Theme.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <!--toutiao-->
+    <string name="hours_ago">%d小时前</string>
+    <string name="just_now">刚刚</string>
+    <string name="minutes_ago">%d分钟前</string>
+
+</resources>

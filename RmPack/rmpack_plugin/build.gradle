@@ -1,0 +1,45 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+
+    implementation 'net.lingala.zip4j:zip4j:2.2.3'
+    //不打包 因为android项目自带 会冲突
+    compileOnly 'com.android.tools.build:manifest-merger:27.1.0-alpha05'
+
+}
+repositories {
+    mavenCentral()
+}
+//以上都为固定写法
+//打包到本地或者远程Maven库
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'com.mrkzs.plugin'   //groupId
+            pom.artifactId = 'rmpack'  //artifactId
+            pom.version = '1.0.0' //版本号
+            //提交到远程服务器：
+             repository(url: "https://dl.bintray.com/asplugin/rmpack") {
+                authentication(userName: "hiongyend", password: "hqiong208")
+             }
+            //本地的Maven地址设置为
+            repository(url: uri('E:/zsdk_projects/gradle_plugin/rmpack/repo'))
+//            repository(url: uri('../repo'))
+
+        }
+    }
+}
+
+publish {
+    userOrg = 'asplugin' //bintray账户下某个组织id
+    groupId = 'com.mrkzs.plugin' //maven仓库下库的包名，一般为模块包名
+    artifactId = 'rmpack' //项目名称
+    publishVersion = '1.0.0' //版本号
+    desc = '' //项目介绍，可以不写
+    website = '' //项目主页，可以不写
+}

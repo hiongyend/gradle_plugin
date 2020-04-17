@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@drawable/zsdk_bg_nor"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/zsdk_title"
+        layout="@layout/zsdk_include_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/zsdk_title"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <EditText
+                android:id="@+id/zsdk_new_pwd_et"
+                style="@style/zsdk_edit_et"
+                android:layout_marginTop="20dp"
+                android:imeOptions="flagNoExtractUi"
+                android:background="@drawable/zsdk_shape_gray_input"
+                android:hint="输入新密码"
+                android:inputType="textPassword"
+                android:tag="2" />
+
+            <EditText
+                android:id="@+id/zsdk_submit_new_pwd_et"
+                style="@style/zsdk_edit_et"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/zsdk_shape_gray_input"
+                android:hint="确认新密码"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textPassword"
+                android:tag="2" />
+
+            <Button
+                android:id="@+id/zsdk_change_btn"
+                style="@style/zsdk_btn"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/zsdk_selector_btn"
+                android:text="确认修改" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
