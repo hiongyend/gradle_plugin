@@ -1,11 +1,6 @@
 package com.mrkzs.rmpack
 
-import com.mrkzs.rmpack.ext.CommResExtension
-import com.mrkzs.rmpack.ext.OutputLibAarExtension
-import com.mrkzs.rmpack.ext.OutputLibExtension
-import com.mrkzs.rmpack.ext.OutputLibJarExtension
-import com.mrkzs.rmpack.ext.PluginExtension
-import com.mrkzs.rmpack.ext.RmLibPackExtension
+import com.mrkzs.rmpack.ext.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
@@ -16,12 +11,16 @@ class RmPack implements Plugin<Project> {
     static final def EXTENSION_NAME = "rmPackArg"
     static final def EXTENSION_RM_LIB_PACK = "libPack"
     static final def EXTENSION_COMM_RES = "commRes"
+//    static final def EXTENSION_DEX_MAIN_LIST = 'dexMainList'
+    static final def EXTENSION_DEX_SPLIT = "dex"
     static final def EXTENSION_OUTPUT = "output"
     static final def EXTENSION_OUTPUT_AAR = "aar"
     static final def EXTENSION_OUTPUT_JAR = "jar"
     static final def TASK_GROUP_RMPACK = 'rmpack'
     static final def TASK_RM_PACK = 'rmPack'
     static final def TASK_COPY_COMM_RES = 'copyLibRes'
+    static final def TASK_DEX_CREATE_MAIN_LIST = 'dexCreateMainList'
+    static final def TASK_DEX_SPLIT_PACK = 'dexSplitPack'
 
     @Override
     void apply(Project project) {
@@ -30,8 +29,8 @@ class RmPack implements Plugin<Project> {
 
         //添加扩展参数
         def baseExt = project.extensions.create(EXTENSION_NAME, PluginExtension, project)
-        def extRmLib = baseExt.extensions.create(EXTENSION_RM_LIB_PACK, RmLibPackExtension, project)
         def extCommRes = baseExt.extensions.create(EXTENSION_COMM_RES, CommResExtension, project)
+        def extDex = baseExt.extensions.create(EXTENSION_DEX_SPLIT, DexTempSplitPackExtension, project)
         def extOutput = baseExt.extensions.create(EXTENSION_OUTPUT, OutputLibExtension, project)
         def extOutputAar = extOutput.extensions.create(EXTENSION_OUTPUT_AAR, OutputLibAarExtension, project)
         def extOutputJar = extOutput.extensions.create(EXTENSION_OUTPUT_JAR, OutputLibJarExtension, project)
@@ -53,10 +52,22 @@ class RmPack implements Plugin<Project> {
         def build = project.tasks.findByName("build")
         aarTask.dependsOn(build)
         aarTask.mustRunAfter(build)
+
+        //打包所有aar
+        def aarAllTask = project.task("makeAarAll", group: TASK_GROUP_RMPACK, type: AARTask)
+        aarAllTask.dependsOn(build)
+        aarAllTask.mustRunAfter(build)
         //打包jar，
         def jarTask = project.task("makeJar${projectNameSuffix}", group: TASK_GROUP_RMPACK, type: JARTask)
         jarTask.dependsOn(build)
         jarTask.mustRunAfter(build)
+        //打包所有jar
+        def jarAllTask = project.task("makeJarAll", group: TASK_GROUP_RMPACK, type: JARTask)
+        jarAllTask.dependsOn(build)
+        jarAllTask.mustRunAfter(build)
+
+        //
+        project.task(TASK_DEX_SPLIT_PACK,group: TASK_GROUP_RMPACK, type: DexTempSplitPackTask)
 
 
         boolean isTask

@@ -8,8 +8,9 @@ dependencies {
     implementation localGroovy()
 
     implementation 'net.lingala.zip4j:zip4j:2.2.3'
-    //不打包 因为android项目自带 会冲突
+    //不打包 因为android studio自带 会冲突
     compileOnly 'com.android.tools.build:manifest-merger:27.1.0-alpha05'
+    implementation files('libs/dx.jar')
 
 }
 repositories {

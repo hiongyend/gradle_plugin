@@ -21,23 +21,23 @@ class JARTask extends Jar {
         def targetDir = "/build/libs";
         def fromJar = project.file('/build/intermediates/packaged-classes/release/classes.jar')
         def rootExt = project.extensions.findByName(RmPack.EXTENSION_NAME) as PluginExtension
-        if (rootExt != null) {
+        if (rootExt) {
             println "$TAG root ext not null"
             def outputExt = rootExt.getProperty(RmPack.EXTENSION_OUTPUT) as OutputLibExtension
-            if(outputExt != null) {
+            if(outputExt) {
                 println "$TAG output ext not null"
                 def outputJarExt = outputExt.getProperty(RmPack.EXTENSION_OUTPUT_JAR) as OutputLibJarExtension
-                if(outputJarExt != null) {
+                if(outputJarExt) {
                     println "$TAG outputJar ext not null "+outputJarExt.fromJar
-                    if(!StringUtil.isEmpty(outputJarExt.fromJar)) {
+                    if(outputJarExt.fromJar) {
                         fromJar = outputJarExt.fromJar
                     }
 
-                    if(!StringUtil.isEmpty(outputJarExt.targetDir)) {
+                    if(outputJarExt.targetDir) {
                         targetDir = outputJarExt.fromJar
                     }
 
-                    if(!StringUtil.isEmpty(outputJarExt.targetName)) {
+                    if(outputJarExt.targetName) {
                         targetName = outputJarExt.targetName
                     }
                 }

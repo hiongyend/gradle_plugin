@@ -32,21 +32,31 @@ android {
 }
 
 rmPackArg {
-    libPack {
-        packFile "libs/zsdklib.jar"
-        packName "android.support"
-    }
+    libPack = [
+            {
+                packFile "libs/zsdklib.jar"
+                packName = [
+                        'android.support',
+                        'com.bun'
+                ]
+            },
+            {
+                packFile "libs/zsdklib.jar"
+                packName = [
+                        'com.zui',
+                        'com.meizu'
+                ]
+            }
+    ]
     commRes {
         resRoot '../res'
     }
-    output {
-        jar {
-            fromJar "ss.jar"
-            targetDir 'build/libs/'
-            targetName 'ff'
-        }
-    }
 
+    dex{
+        mainApk '../apk/app_xiaoqi_20200507_release.apk'
+        dexApk '../apk/app_xiaoqi_dex_20200507_release.apk'
+        mainLib '../apk/zsdklibrary_xiaoqi.aar'
+    }
 }
 
 dependencies {

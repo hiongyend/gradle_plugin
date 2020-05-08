@@ -38,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- Required APPID -->
         <meta-data
             android:name="ZSDK_APPID"

@@ -24,27 +24,27 @@ class AARTask extends Copy {
         //带后
         def targetName = "${project.name }.aar";
         def rootExt = project.extensions.findByName(RmPack.EXTENSION_NAME) as PluginExtension
-        if (rootExt != null) {
+        if (rootExt) {
             println "$TAG root ext not null"
             def outputExt = rootExt.getProperty(RmPack.EXTENSION_OUTPUT) as OutputLibExtension
-            if(outputExt != null) {
+            if(outputExt) {
                 println "$TAG output ext not null"
                 def outputAarExt = outputExt.getProperty(RmPack.EXTENSION_OUTPUT_AAR) as OutputLibAarExtension
-                if(outputAarExt != null) {
+                if(outputAarExt) {
                     println "$TAG outputAar ext not null"
-                    if(!StringUtil.isEmpty(outputAarExt.fromDir)) {
+                    if(outputAarExt.fromDir) {
                         fromDir = outputAarExt.fromDir
                     }
 
-                    if(!StringUtil.isEmpty(outputAarExt.fromName)) {
+                    if(outputAarExt.fromName) {
                         fromName = outputAarExt.fromName
                     }
 
-                    if(!StringUtil.isEmpty(outputAarExt.targetDir)) {
+                    if(outputAarExt.targetDir) {
                         targetDir = outputAarExt.targetDir
                     }
 
-                    if(!StringUtil.isEmpty(outputAarExt.targetName)) {
+                    if(outputAarExt.targetName) {
                         targetName = outputAarExt.targetName
                     }
                 }

@@ -9,6 +9,7 @@ import com.google.common.base.Charsets
 import com.google.common.io.Files
 import com.mrkzs.rmpack.ext.CommResExtension
 import com.mrkzs.rmpack.ext.PluginExtension
+import com.mrkzs.rmpack.utils.FileUtil
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskAction
@@ -29,27 +30,27 @@ class CopyResTask extends DefaultTask {
     void output() {
         println "$TAG task start"
         def rootExt = project.extensions.findByName(RmPack.EXTENSION_NAME) as PluginExtension
-        if (rootExt == null) {
+        if (!rootExt) {
             println "$TAG root ext null"
             return
         }
         def ext = rootExt.getProperty(RmPack.EXTENSION_COMM_RES) as CommResExtension
-        if (ext == null) {
+        if (!ext) {
             println "$TAG ext null"
             return
         }
         def resRootDirStr = ext.resRoot
-        if (resRootDirStr == null || resRootDirStr.length() == 0) {
+        if (!resRootDirStr) {
             println "$TAG res root dir path null"
             return
         }
 
         def resRootDir = project.file(resRootDirStr)
-        if (resRootDir != null && resRootDir.exists()) {
+        if (resRootDir.exists()) {
             println "$TAG root dir $resRootDir"
             println "$TAG module dir $project.projectDir"
             //拷贝文件
-            copy(resRootDir, project.projectDir)
+            FileUtil.copy(resRootDir, project.projectDir)
             //合并AndroidManifest
             def baseManifestFile = project.file('/src/main/AndroidManifest_base.xml')
             if (!baseManifestFile.exists()) {
@@ -63,7 +64,7 @@ class CopyResTask extends DefaultTask {
             }
             def copyManifest = project.file('/src/main/AndroidManifest_origin_copy.xml')
             if (!copyManifest.exists()) {
-                copy(originManifest, copyManifest)
+                FileUtil.copy(originManifest, copyManifest)
             }
             def targetManifest = originManifest
 
@@ -194,55 +195,6 @@ class CopyResTask extends DefaultTask {
 
         @Override
         void verbose(@NonNull String msgFormat, Object... args) {
-        }
-    }
-
-    void copy(File fromFile, File toFile) {
-        if (fromFile.isFile()) {
-            copyFile(fromFile, toFile);
-        } else {
-            if (!toFile.exists()) {
-                toFile.mkdirs();
-            }
-
-            File[] files = fromFile.listFiles();
-            for (File file : files) {
-                copy(file, new File(toFile.getAbsolutePath(), file.getName()));
-            }
-
-        }
-    }
-
-    void copyFile(File oldFile, File newFile) {
-        InputStream inStream = null;
-        FileOutputStream fos = null;
-        try {
-            // int byteSum = 0;
-            int byteRead = 0;
-
-            if (!oldFile.exists()) {
-                return;
-            }
-            inStream = new FileInputStream(oldFile);
-            fos = new FileOutputStream(newFile);
-            byte[] buffer = new byte[1024];
-            while ((byteRead = inStream.read(buffer)) != -1) {
-                // byteSum += byteRead;
-                fos.write(buffer, 0, byteRead);
-            }
-            fos.flush();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (fos != null)
-                    fos.close();
-                if (inStream != null)
-                    inStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

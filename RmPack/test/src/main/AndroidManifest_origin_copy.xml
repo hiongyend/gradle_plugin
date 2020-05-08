@@ -38,42 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Required APPID -->
-        <meta-data
-            android:name="ZSDK_APPID"
-            android:value="1001" /> <!-- Required 无需修改 直接复制粘贴 -->
-        <meta-data
-            android:name="ZSDK_VERSION"
-            android:value="4.0.3" /> <!-- Required SDK内部界面 屏幕方向请指定竖屏或横屏, 主题务必不要修改 -->
-        <activity
-            android:name="com.zsdk.sdklib.auth.AuthActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@style/zsdk_dialog" /> <!-- Required 公共界面 屏幕方向请指定竖屏或横屏 -->
-        <activity
-            android:name="com.zsdk.sdklib.auth.CommonActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> <!-- Required SDK核心服务 -->
-        <service
-            android:name="com.zsdk.sdklib.open.ZSDKService"
-            android:exported="false" /> <!-- Required FileProvider -->
-        <provider
-            android:name="com.zsdk.sdklib.open.ZFileProvider"
-            android:authorities="com.zsdk.sdkdemo.zsdk_fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.ZSDK.FILE_PROVIDER_PATHS"
-                android:resource="@xml/zsdk_filepaths" />
-        </provider> <!-- Required 权限 -->
-        <activity
-            android:name="com.zsdk.sdklib.permission.PermissionActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="standard"
-            android:screenOrientation="landscape"
-            android:theme="@style/ZSDKPermission.Theme.Activity"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+
     </application>
 
 </manifest>
