@@ -3,12 +3,13 @@ package com.mrkzs.rmpack
 import com.mrkzs.rmpack.ext.OutputLibExtension
 import com.mrkzs.rmpack.ext.OutputLibJarExtension
 import com.mrkzs.rmpack.ext.PluginExtension
-import com.mrkzs.rmpack.utils.StringUtil
 import org.gradle.api.tasks.bundling.Jar
+
 /**
  * Created by KINCAI
  * <p>
- * Desc TODO
+ * Desc 打包jar
+ * 在build.gradle引入插件后，配置我们的扩展参数即可
  * <p>
  * Date 2020-04-16 18:20
  */
@@ -20,6 +21,8 @@ class JARTask extends Jar {
         def targetName = "${project.name}"
         def targetDir = "/build/libs";
         def fromJar = project.file('/build/intermediates/packaged-classes/release/classes.jar')
+        //因为是继承的org.gradle.api.tasks.bundling.Jar，所以这个任务实际运行的时候先实例化，所以是拿不到扩展参数的
+        //暂时忽略下面的参数获取
         def rootExt = project.extensions.findByName(RmPack.EXTENSION_NAME) as PluginExtension
         if (rootExt) {
             println "$TAG root ext not null"

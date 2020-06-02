@@ -3,13 +3,13 @@ package com.mrkzs.rmpack
 import com.mrkzs.rmpack.ext.OutputLibAarExtension
 import com.mrkzs.rmpack.ext.OutputLibExtension
 import com.mrkzs.rmpack.ext.PluginExtension
-import com.mrkzs.rmpack.utils.StringUtil
 import org.gradle.api.internal.file.copy.CopyActionExecuter
 import org.gradle.api.tasks.Copy
 /**
  * Created by KINCAI
  * <p>
- * Desc TODO
+ * Desc 打包aar
+ * 在build.gradle引入插件后，配置我们的扩展参数即可
  * <p>
  * Date 2020-03-16 15:27
  */
@@ -23,6 +23,8 @@ class AARTask extends Copy {
         def targetDir = 'build/libs'
         //带后
         def targetName = "${project.name }.aar";
+        //因为是继承的org.gradle.api.tasks.Copy，所以这个任务实际运行的时候先实例化，所以是拿不到扩展参数的
+        //暂时忽略下面的参数获取
         def rootExt = project.extensions.findByName(RmPack.EXTENSION_NAME) as PluginExtension
         if (rootExt) {
             println "$TAG root ext not null"

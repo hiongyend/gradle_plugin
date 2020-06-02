@@ -11,7 +11,7 @@ import org.gradle.api.tasks.TaskAction
 /**
  * Created by KINCAI
  * <p>
- * Desc TODO
+ * Desc 临时dex分包，临时替代方案
  * <p>
  * Date 2020-05-07 11:55
  */
@@ -101,7 +101,6 @@ public class DexTempSplitPackTask extends DefaultTask {
             mainApkZipFile.addFile(mainDex, mainZipParameters)
 
             //dex apk提取from dex重命名并添在main apk添加 main dex 和 from dex
-            List<String> dexApkList = new ArrayList<>()
             def dexApkFileList = FileUtil.getNeedZipFile(dexApkFile, {
                 filter ->
                     return filter && filter.endsWith('.dex') && !filter.contains("/")

@@ -19,7 +19,8 @@ import java.nio.charset.StandardCharsets
 /**
  * Created by KINCAI
  * <p>
- * Desc 打包aar项目，因gradle未提供
+ * Desc 打包aar项目时，合并项目，因gradle未提供
+ * 在build.gradle引入插件后，配置我们的参数即可
  * <p>
  * Date 2020-04-08 15:09
  */
@@ -28,6 +29,7 @@ class CopyResTask extends DefaultTask {
 
     @TaskAction
     void output() {
+        //首先要拿扩展参数
         println "$TAG task start"
         def rootExt = project.extensions.findByName(RmPack.EXTENSION_NAME) as PluginExtension
         if (!rootExt) {
@@ -51,32 +53,44 @@ class CopyResTask extends DefaultTask {
             println "$TAG module dir $project.projectDir"
             //拷贝文件
             FileUtil.copy(resRootDir, project.projectDir)
-            //合并AndroidManifest
+            //依赖包中base AndroidManifest
             def baseManifestFile = project.file('/src/main/AndroidManifest_base.xml')
             if (!baseManifestFile.exists()) {
                 println "$TAG base manifest not exists"
                 return
             }
+            //这个文件是接入时配置的，合并后也是这个文件
             def originManifest = project.file('/src/main/AndroidManifest.xml')
             if (!originManifest.exists()) {
                 println "$TAG origin manifest not exists"
                 return
             }
+            //第一次这个文件是不存在的，需要从AndroidManifest.xml复制一份，实际上合并就是将这个复制后的文件和base进行合并
+            //生成AndroidManifest.xml
             def copyManifest = project.file('/src/main/AndroidManifest_origin_copy.xml')
             if (!copyManifest.exists()) {
                 FileUtil.copy(originManifest, copyManifest)
             }
             def targetManifest = originManifest
 
+            //先合并
             mergeManifest(project, targetManifest, baseManifestFile, copyManifest)
             println "$TAG manifest merger finished after replace Z_APPLICATION_ID to \${applicationId}"
+            //再把包名占位替换回去
             replaceManifestAttr(targetManifest)
         }
     }
 
+    //定义这个常量是为了占位包名，在接入sdk的时候 配置的 AndroidManifest 文件涉及包名的地方都替换为Z_APPLICATION_ID，再进行合并操作，
+    // 为啥要这么操作，因为我们这里合并 AndroidManifest 文件的时候默认会将 ${applicationId}替换为实际包名，这样我们生产aar的时候 就是固定包名了，
+    //所以我们要先替换为别的，在合并完之后再替换回来
     final static def Z_APPLICATION_ID = 'Z_APPLICATION_ID'
     final static def APPLICATION_ID = '${applicationId}'
 
+    /**
+     * 替换包名占位符
+     * @param manifestFile
+     */
     static void replaceManifestAttr(File manifestFile) {
         if (!manifestFile.exists()) {
             println "$TAG replace manifest file not exists"
@@ -132,6 +146,13 @@ class CopyResTask extends DefaultTask {
 
     }
 
+    /**
+     * 合并AndroidManifest文件
+     * @param project
+     * @param targetManifest
+     * @param libraryManifest
+     * @param originMaifestFile
+     */
     static void mergeManifest(Project project, File targetManifest, File libraryManifest, File originMaifestFile) {
         File reportFile = project.file('build/embedManifestReport.txt')
         File aaptManifest = targetManifest

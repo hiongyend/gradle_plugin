@@ -31,10 +31,14 @@ android {
 
 }
 
+//扩展参数根
 rmPackArg {
+    //RmTask任务需要的扩展,定义在PluginExtension 非必要扩展，非必要
     libPack = [
             {
+                //需要移除包的文件
                 packFile "libs/zsdklib.jar"
+                //需要移除的包
                 packName = [
                         'android.support',
                         'com.bun'
@@ -48,13 +52,39 @@ rmPackArg {
                 ]
             }
     ]
+
+    //输出扩展OutputLibExtension
+    output {
+        //AARTask需要的扩展，定义在OutputLibAarExtension，暂时不会生效（后续可能会修改任务为DefaultTask类型，按需执行就可拿到参数）, 非必要
+        aar {
+            fromDir 'build/outputs/aar/'
+            fromName 'aaa-release.aar'
+            targetDir 'build/libs'
+            targetName 'bbb.aar'
+        }
+
+        //JARTask需要的扩展参数，定义在OutputLibJarExtension，暂时不会生效（后续可能会修改任务为DefaultTask类型，按需执行就可拿到参数）, 非必要
+        jar {
+            fromJar '/build/intermediates/packaged-classes/release/classes.jar'
+            targetDir '/build/libs'
+            //生成目标名字不带后缀
+            targetName 'aaa'
+        }
+    }
+
+    //CopyResTask需要的扩展参数，定义在CommResExtension，非必要
     commRes {
+        //公共资源目录
         resRoot '../res'
     }
 
+    //DexTempSplitPackTask需要的扩展参数，定义在DexTempSplitPackExtension，非必要
     dex{
+        //主apk
         mainApk '../apk/app_xiaoqi_20200507_release.apk'
+        //dex apk
         dexApk '../apk/app_xiaoqi_dex_20200507_release.apk'
+        //需要的转为主dex的
         mainLib '../apk/zsdklibrary_xiaoqi.aar'
     }
 }

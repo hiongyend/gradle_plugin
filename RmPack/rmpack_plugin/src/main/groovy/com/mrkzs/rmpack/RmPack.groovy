@@ -11,15 +11,14 @@ class RmPack implements Plugin<Project> {
     static final def EXTENSION_NAME = "rmPackArg"
     static final def EXTENSION_RM_LIB_PACK = "libPack"
     static final def EXTENSION_COMM_RES = "commRes"
-//    static final def EXTENSION_DEX_MAIN_LIST = 'dexMainList'
     static final def EXTENSION_DEX_SPLIT = "dex"
     static final def EXTENSION_OUTPUT = "output"
     static final def EXTENSION_OUTPUT_AAR = "aar"
     static final def EXTENSION_OUTPUT_JAR = "jar"
+    //任务组
     static final def TASK_GROUP_RMPACK = 'rmpack'
     static final def TASK_RM_PACK = 'rmPack'
     static final def TASK_COPY_COMM_RES = 'copyLibRes'
-    static final def TASK_DEX_CREATE_MAIN_LIST = 'dexCreateMainList'
     static final def TASK_DEX_SPLIT_PACK = 'dexSplitPack'
 
     @Override
@@ -66,8 +65,8 @@ class RmPack implements Plugin<Project> {
         jarAllTask.dependsOn(build)
         jarAllTask.mustRunAfter(build)
 
-        //
-        project.task(TASK_DEX_SPLIT_PACK,group: TASK_GROUP_RMPACK, type: DexTempSplitPackTask)
+        //dex临时分包方案任务
+        project.task(TASK_DEX_SPLIT_PACK, group: TASK_GROUP_RMPACK, type: DexTempSplitPackTask)
 
 
         boolean isTask
